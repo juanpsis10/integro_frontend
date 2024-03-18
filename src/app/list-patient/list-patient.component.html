@@ -1,0 +1,103 @@
+<div class="list-patient-container">
+  <div class="search-module">
+    <div class="name-module">
+      <label for="patient-module">Buscar Paciente</label>
+    </div>
+    <div class="input-row">
+      <div class="input-group">
+        <label for="tipoBusqueda">Tipo de Busqueda</label>
+        <select
+          id="tipoBusqueda"
+          name="tipoBusqueda"
+          (change)="handleChange($event)"
+        >
+          <option value="" disabled selected>Tipo de Búsqueda ...</option>
+          <option value="DI">Documento de identidad</option>
+          <option value="ApeNom">Apellidos y Nombres</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="tipoDocumento">Tipo Documento</label>
+        <select
+          id="tipoDocumento"
+          name="tipoDocumento"
+          (change)="handleTipoDocumentoChange($event)"
+          disabled
+        >
+          <option value="" disabled selected>Tipo de Documento ...</option>
+          <option
+            *ngFor="let tipoDocumento of tiposDocumentoIdentidad"
+            [value]="tipoDocumento.id"
+          >
+            {{ tipoDocumento.descripcion }}
+          </option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="numeroDocumento">Codigo Documento</label>
+        <input
+          type="text"
+          id="numeroDocumento"
+          name="numeroDocumento"
+          inputmode="numeric"
+          class="numeric-input"
+          disabled
+        />
+      </div>
+      <div class="input-group">
+        <label for="apellidos">Apellidos</label>
+        <input type="text" id="apellidos" name="apellidos" disabled />
+      </div>
+      <div class="input-group">
+        <label for="nombres">Nombres</label>
+        <input type="text" id="nombres" name="nombres" disabled />
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="button-search">Buscar</button>
+      <button class="button-clean" (click)="limpiarCampos()">Limpiar</button>
+    </div>
+  </div>
+  <div class="list-module">
+    <div class="head-module">
+      <div class="name-module">
+        <label for="patient-module">Pacientes</label>
+      </div>
+      <div class="register-patient">
+        <button
+          class="button-register-patient"
+          (click)="navigateToRegisterPatient()"
+        >
+          Registrar Paciente
+        </button>
+      </div>
+    </div>
+    <div class="body-module">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Tipo de Doc.</th>
+            <th>Número de Doc.</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Estado</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jane Smith</td>
+            <td>Pasaporte</td>
+            <td>87654321</td>
+            <td>05/05/1985</td>
+            <td>Inactivo</td>
+            <td><button class="edit-button">Editar</button></td>
+            <td><button class="delete-button">Eliminar</button></td>
+          </tr>
+          <!-- Más filas de datos ficticios aquí -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

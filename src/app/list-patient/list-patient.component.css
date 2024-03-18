@@ -1,0 +1,221 @@
+.list-patient-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1e1f22;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end; /* Alinear los elementos a la derecha */
+}
+
+.buttons button {
+  margin-left: 10px; /* Agregar un espacio entre los botones */
+}
+
+.search-module {
+  width: 90%;
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 2%;
+  padding: 3%;
+  border: 3px solid rgb(147, 147, 147); /* Agregar borde a cada fila */
+  background-color: #2b2d31;
+  border-radius: 10px;
+}
+
+.input-row {
+  margin-top: 2%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-group {
+  width: 18%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  color: #949ba4;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.label {
+  margin-bottom: 5px;
+}
+
+input[type="text"]:disabled,
+input[type="number"]:disabled,
+select:disabled {
+  background-color: #7a7a7a; /* Color de fondo gris para elementos deshabilitados */
+  color: #bfbfbf; /* Color de texto gris para elementos deshabilitados */
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #151515;
+  background-color: #45474f;
+  color: #e4e4e4;
+}
+input[type="number"],
+select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #151515;
+  background-color: #45474f;
+  color: #e4e4e4;
+}
+/* Ocultar las flechas del campo de número */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.list-module {
+  width: 90%;
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  padding: 3%;
+  border: 3px solid rgb(147, 147, 147); /* Agregar borde a cada fila */
+  background-color: #2b2d31;
+  border-radius: 10px;
+}
+
+.head-module {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2%;
+}
+
+.button-register-patient {
+  padding: 8px 16px;
+  border-radius: 5px;
+  background-color: #0a66c2;
+  border-color: #0a66c2;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.button-register-patient:hover {
+  background-color: #0e7cd9;
+  border-color: #0e7cd9;
+}
+
+.button-clean:hover {
+  background-color: #828282;
+  border-color: #828282;
+}
+
+.button-search:hover {
+  background-color: #0e7cd9;
+  border-color: #0e7cd9;
+}
+
+.button-register-patient:focus,
+.button-search:focus,
+.button-clean:focus {
+  outline: none;
+}
+
+.button-search {
+  background-color: #0a66c2;
+  border-color: #0a66c2;
+  padding: 8px 16px;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.button-clean {
+  background-color: #2b2d31;
+  border-color: #ffffff;
+  border-radius: 5px;
+  padding: 8px 16px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px; /* Ajusta el espaciado interno de las celdas */
+  text-align: left;
+  border-bottom: 1px solid rgb(147, 147, 147); /* Línea separadora entre filas */
+}
+
+td {
+  color: #949ba4;
+}
+
+th {
+  background-color: #6b6e72; /* Color de fondo para los encabezados */
+  color: #c7c8c9;
+}
+
+tbody tr {
+  background-color: #383a40; /* Alternar colores de fondo para filas pares */
+}
+
+.edit-button {
+  background-color: #28a745; /* Color de fondo para botón de editar */
+  padding: 5px 10px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  border-color: #28a745;
+}
+
+.delete-button {
+  background-color: #383a40;
+  padding: 5px 10px;
+  color: #dc3545;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  border-color: #dc3545;
+}
+.edit-button:hover {
+  background-color: #218838; /* Cambiar el color de fondo al 
+  pasar el mouse sobre el botón */
+  border-color: #218838;
+}
+.delete-button:hover {
+  background-color: #484a4f; /* Cambiar el color de fondo al pasar el mouse sobre el botón */
+}
+
+.name-module label {
+  font-size: 40px; /* Aumentar el tamaño de la fuente */
+  font-weight: bold; /* Hacer el texto en negrita para mayor impacto */
+  color: #949ba4; /* Color de texto oscuro para contraste */
+}

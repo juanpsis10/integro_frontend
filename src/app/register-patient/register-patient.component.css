@@ -1,0 +1,147 @@
+.register-patient-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1e1f22;
+}
+
+.data-patient-module,
+.data-companion-module {
+  width: 90%;
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 1%;
+  padding: 2%;
+  border: 3px solid rgb(147, 147, 147); /* Agregar borde a cada fila */
+  background-color: #2b2d31;
+  border-radius: 10px;
+}
+
+.input-row {
+  margin-top: 2%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-group {
+  width: 18%;
+  margin-left: 1%;
+  margin-right: 1%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  color: #949ba4;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.input-group-direccion,
+.input-group-telfContacto,
+.input-group-lugarNacimiento {
+  width: 38%;
+  margin-left: 1%;
+  margin-right: 1%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group-direccion,
+.input-group-telfContacto,
+.input-group-lugarNacimiento label {
+  color: #949ba4;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.label {
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #151515;
+  background-color: #45474f;
+  color: #e4e4e4;
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #151515;
+  background-color: #45474f;
+  color: #e4e4e4;
+}
+/* Ocultar las flechas del campo de número */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.name-module label {
+  font-size: 40px; /* Aumentar el tamaño de la fuente */
+  font-weight: bold; /* Hacer el texto en negrita para mayor impacto */
+  color: #949ba4; /* Color de texto oscuro para contraste */
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end; /* Alinear los elementos a la derecha */
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 2%;
+}
+
+.buttons button {
+  margin-left: 10px; /* Agregar un espacio entre los botones */
+}
+
+.button-clean:hover {
+  background-color: #828282;
+  border-color: #828282;
+}
+
+.button-search:hover {
+  background-color: #0e7cd9;
+  border-color: #0e7cd9;
+}
+
+.button-search:focus,
+.button-clean:focus {
+  outline: none;
+}
+
+.button-search {
+  background-color: #0a66c2;
+  border-color: #0a66c2;
+  padding: 8px 16px;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.button-clean {
+  background-color: #2b2d31;
+  border-color: #ffffff;
+  border-radius: 5px;
+  padding: 8px 16px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
