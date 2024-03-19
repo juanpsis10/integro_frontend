@@ -11,7 +11,7 @@
           name="tipoBusqueda"
           (change)="handleChange($event)"
         >
-          <option value="" disabled selected>Tipo de Búsqueda ...</option>
+          <option value="" hidden>Tipo de Búsqueda ...</option>
           <option value="DI">Documento de identidad</option>
           <option value="ApeNom">Apellidos y Nombres</option>
         </select>
@@ -24,7 +24,7 @@
           (change)="handleTipoDocumentoChange($event)"
           disabled
         >
-          <option value="" disabled selected>Tipo de Documento ...</option>
+          <option value="" hidden>Tipo de Documento ...</option>
           <option
             *ngFor="let tipoDocumento of tiposDocumentoIdentidad"
             [value]="tipoDocumento.id"
@@ -34,7 +34,7 @@
         </select>
       </div>
       <div class="input-group">
-        <label for="numeroDocumento">Codigo Documento</label>
+        <label for="numeroDocumento">N° Documento</label>
         <input
           type="text"
           id="numeroDocumento"
@@ -54,7 +54,7 @@
       </div>
     </div>
     <div class="buttons">
-      <button class="button-search">Buscar</button>
+      <button class="button-search" (click)="buscarPacientes()">Buscar</button>
       <button class="button-clean" (click)="limpiarCampos()">Limpiar</button>
     </div>
   </div>
@@ -80,18 +80,23 @@
             <th>Tipo de Doc.</th>
             <th>Número de Doc.</th>
             <th>Fecha de Nacimiento</th>
+            <th>Codigo de Asegurado</th>
             <th>Estado</th>
             <th>Editar</th>
             <th>Eliminar</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Jane Smith</td>
-            <td>Pasaporte</td>
-            <td>87654321</td>
-            <td>05/05/1985</td>
-            <td>Inactivo</td>
+          <tr *ngFor="let paciente of pacientes">
+            <td>
+              {{ paciente.noNombres }} {{ paciente.noApepat }}
+              {{ paciente.noApemat }}
+            </td>
+            <td>{{ paciente.descripcionTipoDocide }}</td>
+            <td>{{ paciente.noDocide }}</td>
+            <td>{{ paciente.feNacimiento }}</td>
+            <td>{{ paciente.coAsegurado }}</td>
+            <td>{{ paciente.flEstado ? "Activo" : "Inactivo" }}</td>
             <td><button class="edit-button">Editar</button></td>
             <td><button class="delete-button">Eliminar</button></td>
           </tr>

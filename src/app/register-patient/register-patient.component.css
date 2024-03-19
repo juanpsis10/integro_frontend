@@ -49,8 +49,8 @@
   flex-direction: column;
 }
 
-.input-group-direccion,
-.input-group-telfContacto,
+.input-group-direccion label,
+.input-group-telfContacto label,
 .input-group-lugarNacimiento label {
   color: #949ba4;
   font-size: 16px;
@@ -62,9 +62,7 @@
   margin-bottom: 5px;
 }
 
-input[type="text"],
-select {
-  width: 100%;
+input {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #151515;
@@ -72,15 +70,14 @@ select {
   color: #e4e4e4;
 }
 
-input[type="number"],
 select {
-  width: 100%;
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #151515;
   background-color: #45474f;
   color: #e4e4e4;
 }
+
 /* Ocultar las flechas del campo de número */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -144,4 +141,8 @@ input[type="number"]::-webkit-outer-spin-button {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.field-error {
+  border: 2px solid red !important;
 }
