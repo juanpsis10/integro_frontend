@@ -1,23 +1,24 @@
+// delete-companion.service.ts
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { Observable } from 'rxjs';
 import { environment } from '../enviroment/enviroment';
-import { RegisterPatient } from '../interfaces/register-patient';
+import { DeleteCompanion } from '../interfaces/delete-companion';
 
 @Injectable({
   providedIn: 'root',
 })
-export class RegisterPatientService {
+export class DeleteCompanionService {
   private apiUrl = environment.apiUrl;
 
   constructor() {}
 
-  registerPatient(patientData: RegisterPatient): Observable<number> {
-    return new Observable<number>((observer) => {
+  deleteCompanion(idPaciente: number): Observable<void> {
+    return new Observable<void>((observer) => {
       axios
-        .post<number>(`${this.apiUrl}pacientes/registrar`, patientData)
-        .then((response) => {
-          observer.next(response.data);
+        .delete<void>(`${this.apiUrl}acompanante/eliminar/${idPaciente}`)
+        .then(() => {
+          observer.next();
           observer.complete();
         })
         .catch((error) => {

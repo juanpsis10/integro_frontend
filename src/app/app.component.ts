@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AppModule } from './app.module'; // Importar AppModule aquí
+import { AppModule } from './app.module';
 import { RegisterPatientComponent } from './register-patient/register-patient.component';
 import { ListPatientComponent } from './list-patient/list-patient.component';
 

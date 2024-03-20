@@ -64,8 +64,9 @@
         <label for="sexo">Sexo</label>
         <select #sexo id="sexo" name="sexo" required>
           <option value="" hidden>Sexo...</option>
-          <option value="Masculino">Masculino</option>
-          <option value="Femenino">Femenino</option>
+          <option *ngFor="let sexo of sexs" [value]="sexo.id">
+            {{ sexo.descripcion }}
+          </option>
         </select>
       </div>
       <div class="input-group">
@@ -76,11 +77,12 @@
           name="fechaNacimiento"
           type="date"
           required
+          (input)="calcularEdad()"
         />
       </div>
       <div class="input-group">
         <label for="edad">Edad</label>
-        <input #edad type="text" id="edad" name="edad" required />
+        <input #edad type="number" id="edad" name="edad" required readonly />
       </div>
       <div class="input-group-lugarNacimiento">
         <label for="lugarNacimiento">Lugar de Nacimiento</label>
@@ -106,34 +108,57 @@
       </div>
       <div class="input-group">
         <label for="departamento">Departamento</label>
-        <select #departamento id="departamento" name="departamento" required>
+        <select
+          #departamento
+          id="departamento"
+          name="departamento"
+          class="select-departamento"
+          (change)="onChangeDepartamento($event)"
+          required
+        >
           <option value="" hidden>Departamento...</option>
-          <option value="dni">DNI</option>
-          <option value="ce">Carnet de Extranjería</option>
-          <option value="pasaporte">Pasaporte</option>
+          <option
+            *ngFor="let departamento of ubigeoDepartaments"
+            [value]="departamento.codigo"
+          >
+            {{ departamento.nombre }}
+          </option>
         </select>
       </div>
       <div class="input-group">
         <label for="provincia">Provincia</label>
-        <select #provincia id="provincia" name="provincia" required>
+        <select
+          #provincia
+          id="provincia"
+          name="provincia"
+          (change)="onChangeProvincia($event)"
+          disabled
+          required
+        >
           <option value="" hidden>Provincia...</option>
-          <option value="dni">DNI</option>
-          <option value="ce">Carnet de Extranjería</option>
-          <option value="pasaporte">Pasaporte</option>
+          <option
+            *ngFor="let provincia of ubigeoProvinces"
+            [value]="provincia.codigo"
+          >
+            {{ provincia.nombre }}
+          </option>
         </select>
       </div>
       <div class="input-group">
         <label for="distrito">Distrito</label>
-        <select #distrito id="distrito" name="distrito" required>
+        <select #distrito id="distrito" name="distrito" disabled required>
           <option value="" hidden>Distrito...</option>
-          <option value="dni">DNI</option>
-          <option value="ce">Carnet de Extranjería</option>
-          <option value="pasaporte">Pasaporte</option>
+          <option
+            *ngFor="let distrito of ubigeoDistricts"
+            [value]="distrito.codigo"
+          >
+            {{ distrito.nombre }}
+          </option>
         </select>
       </div>
     </div>
   </div>
-  <div class="data-companion-module">
+  <div *ngIf="showCompanionModule" class="data-companion-module">
     <div class="name-module">
       <label for="register-companion-module">Datos del Acompañante</label>
     </div>
@@ -141,6 +166,7 @@
       <div class="input-group">
         <label for="tipoDocumentoComp">Tipo Documento</label>
         <select
+          #tipoDocumentoComp
           id="tipoDocumentoComp"
           name="tipoDocumentoComp"
           (change)="onTipoDocumentoAcompananteChange($event)"
@@ -157,6 +183,7 @@
       <div class="input-group">
         <label for="numeroDocumentoComp">N° Documento</label>
         <input
+          #numeroDocumentoComp
           type="number"
           id="numeroDocumentoComp"
           name="numeroDocumentoComp"
@@ -167,6 +194,7 @@
       <div class="input-group">
         <label for="apellidoPaternoComp">Apellido Paterno</label>
         <input
+          #apellidoPaternoComp
           type="text"
           id="apellidoPaternoComp"
           name="apellidoPaternoComp"
@@ -175,6 +203,7 @@
       <div class="input-group">
         <label for="apellidoMaternoComp">Apellido Materno</label>
         <input
+          #apellidoMaternoComp
           type="text"
           id="apellidoMaternoComp"
           name="apellidoMaternoComp"
@@ -182,66 +211,109 @@
       </div>
       <div class="input-group">
         <label for="nombresComp">Nombres</label>
-        <input type="text" id="nombresComp" name="nombresComp" />
+        <input #nombresComp type="text" id="nombresComp" name="nombresComp" />
       </div>
     </div>
     <div class="input-row">
       <div class="input-group">
         <label for="fechaNacimientoComp">Fecha de Nacimiento</label>
         <input
+          #fechaNacimientoComp
           id="fechaNacimientoComp"
           name="fechaNacimientoComp"
           type="date"
+          (input)="calcularEdadComp()"
         />
       </div>
       <div class="input-group">
         <label for="edadComp">Edad</label>
-        <input type="text" id="edadComp" name="edadComp" />
+        <input
+          #edadComp
+          type="number"
+          id="edadComp"
+          name="edadComp"
+          disabled
+          readonly
+        />
       </div>
       <div class="input-group">
         <label for="parentescoComp">Parentesco</label>
-        <select id="parentescoComp" name="parentescoComp">
+        <select #parentescoComp id="parentescoComp" name="parentescoComp">
           <option value="" hidden>Parentesco...</option>
-          <option value="dni">DNI</option>
-          <option value="ce">Carnet de Extranjería</option>
-          <option value="pasaporte">Pasaporte</option>
+          <option
+            *ngFor="let parentesco of relationships"
+            [value]="parentesco.id"
+          >
+            {{ parentesco.parentesco }}
+          </option>
         </select>
       </div>
       <div class="input-group-telfContacto">
         <label for="telfComp">Telefono Contacto</label>
-        <input type="text" id="telfComp" name="telfComp" />
+        <input
+          #telfComp
+          type="text"
+          id="telfComp"
+          name="telfComp"
+          (input)="onInputTelf($event)"
+        />
       </div>
     </div>
     <div class="input-row">
       <div class="input-group-direccion">
-        <label for="direccion">Direccion</label>
-        <input type="text" id="direccionComp" name="direccionComp" />
+        <label for="direccionComp">Direccion</label>
+        <input
+          #direccionComp
+          type="text"
+          id="direccionComp"
+          name="direccionComp"
+        />
       </div>
       <div class="input-group">
-        <label for="departamento">Departamento</label>
-        <select id="departamentoComp" name="departamentoComp">
+        <label for="departamentoComp">Departamento</label>
+        <select
+          #departamentoComp
+          id="departamentoComp"
+          name="departamentoComp"
+          (change)="onChangeDepartamentoComp($event)"
+        >
           <option value="" hidden>Departamento...</option>
-          <option value="dni">DNI</option>
-          <option value="ce">Carnet de Extranjería</option>
-          <option value="pasaporte">Pasaporte</option>
+          <option
+            *ngFor="let departamento of ubigeoDepartaments"
+            [value]="departamento.codigo"
+          >
+            {{ departamento.nombre }}
+          </option>
         </select>
       </div>
       <div class="input-group">
-        <label for="provincia">Provincia</label>
-        <select id="provinciaComp" name="provinciaComp">
+        <label for="provinciaComp">Provincia</label>
+        <select
+          #provinciaComp
+          id="provinciaComp"
+          name="provinciaComp"
+          (change)="onChangeProvinciaComp($event)"
+          disabled
+        >
           <option value="" hidden>Provincia...</option>
-          <option value="dni">DNI</option>
-          <option value="ce">Carnet de Extranjería</option>
-          <option value="pasaporte">Pasaporte</option>
+          <option
+            *ngFor="let provincia of ubigeoProvincesComp"
+            [value]="provincia.codigo"
+          >
+            {{ provincia.nombre }}
+          </option>
         </select>
       </div>
       <div class="input-group">
-        <label for="distrito">Distrito</label>
-        <select id="distritoComp" name="distritoComp">
+        <label for="distritoComp">Distrito</label>
+        <select #distritoComp id="distritoComp" name="distritoComp" disabled>
           <option value="" hidden>Distrito...</option>
-          <option value="dni">DNI</option>
-          <option value="ce">Carnet de Extranjería</option>
-          <option value="pasaporte">Pasaporte</option>
+          <option
+            *ngFor="let distrito of ubigeoDistrictsComp"
+            [value]="distrito.codigo"
+          >
+            {{ distrito.nombre }}
+          </option>
         </select>
       </div>
     </div>
@@ -250,7 +322,17 @@
     <button type="button" class="button-search" (click)="guardarDatos()">
       Guardar
     </button>
-    <button class="button-clean">Cancelar</button>
-    <button class="button-register-comp">Registrar Acompañante</button>
+    <button class="button-clean" (click)="cancelar()">Cancelar</button>
+    <button
+      class="button-register-comp"
+      [class]="cancelButtonClass"
+      (click)="toggleCompanionModule()"
+    >
+      {{
+        showCompanionModule
+          ? "Cancelar Reg. Acompañante"
+          : "Registrar Acompañante"
+      }}
+    </button>
   </div>
 </div>

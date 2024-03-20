@@ -97,10 +97,23 @@
             <td>{{ paciente.feNacimiento }}</td>
             <td>{{ paciente.coAsegurado }}</td>
             <td>{{ paciente.flEstado ? "Activo" : "Inactivo" }}</td>
-            <td><button class="edit-button">Editar</button></td>
-            <td><button class="delete-button">Eliminar</button></td>
+            <td>
+              <button
+                class="edit-button"
+                (click)="editarPaciente(paciente.idPaciente)"
+              >
+                Editar
+              </button>
+            </td>
+            <td>
+              <button
+                class="delete-button"
+                (click)="eliminarPaciente(paciente.idPaciente)"
+              >
+                Eliminar
+              </button>
+            </td>
           </tr>
-          <!-- Más filas de datos ficticios aquí -->
         </tbody>
       </table>
     </div>

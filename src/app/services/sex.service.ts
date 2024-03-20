@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-import axios from 'axios';
 import { Observable } from 'rxjs';
+import { Sex } from '../interfaces/sex';
+import axios from 'axios';
 import { environment } from '../enviroment/enviroment';
-import { RegisterPatient } from '../interfaces/register-patient';
 
 @Injectable({
   providedIn: 'root',
 })
-export class RegisterPatientService {
+export class SexService {
   private apiUrl = environment.apiUrl;
 
   constructor() {}
 
-  registerPatient(patientData: RegisterPatient): Observable<number> {
-    return new Observable<number>((observer) => {
+  getSexs(): Observable<Sex[]> {
+    return new Observable((observer) => {
       axios
-        .post<number>(`${this.apiUrl}pacientes/registrar`, patientData)
+        .get<Sex[]>(`${this.apiUrl}sexos`)
         .then((response) => {
           observer.next(response.data);
           observer.complete();

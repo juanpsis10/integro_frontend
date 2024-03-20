@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-import axios from 'axios';
 import { Observable } from 'rxjs';
+import { UbigeoDepartament } from '../interfaces/ubigeo-departament';
+import axios from 'axios';
 import { environment } from '../enviroment/enviroment';
-import { RegisterPatient } from '../interfaces/register-patient';
 
 @Injectable({
   providedIn: 'root',
 })
-export class RegisterPatientService {
+export class UbigeoDepartamentService {
   private apiUrl = environment.apiUrl;
 
   constructor() {}
 
-  registerPatient(patientData: RegisterPatient): Observable<number> {
-    return new Observable<number>((observer) => {
+  getUbigeoDepartaments(): Observable<UbigeoDepartament[]> {
+    return new Observable((observer) => {
       axios
-        .post<number>(`${this.apiUrl}pacientes/registrar`, patientData)
+        .get<UbigeoDepartament[]>(`${this.apiUrl}ubigeo-departamentos`)
         .then((response) => {
           observer.next(response.data);
           observer.complete();

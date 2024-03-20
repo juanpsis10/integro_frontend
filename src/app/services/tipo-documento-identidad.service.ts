@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TipoDocumentoIdentidad } from '../interfaces/tipo-documento-identidad'; // Importa la interfaz
+import { TipoDocumentoIdentidad } from '../interfaces/tipo-documento-identidad';
 import axios from 'axios';
 import { environment } from '../enviroment/enviroment';
 

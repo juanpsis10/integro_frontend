@@ -1,4 +1,4 @@
-.register-patient-container {
+.edit-patient-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +13,7 @@
   margin-right: 5%;
   margin-bottom: 1%;
   padding: 2%;
-  border: 3px solid rgb(147, 147, 147); /* Agregar borde a cada fila */
+  border: 3px solid rgb(147, 147, 147);
   background-color: #2b2d31;
   border-radius: 10px;
 }
@@ -49,8 +49,8 @@
   flex-direction: column;
 }
 
-.input-group-direccion,
-.input-group-telfContacto,
+.input-group-direccion label,
+.input-group-telfContacto label,
 .input-group-lugarNacimiento label {
   color: #949ba4;
   font-size: 16px;
@@ -62,9 +62,7 @@
   margin-bottom: 5px;
 }
 
-input[type="text"],
-select {
-  width: 100%;
+input {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #151515;
@@ -72,16 +70,14 @@ select {
   color: #e4e4e4;
 }
 
-input[type="number"],
 select {
-  width: 100%;
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #151515;
   background-color: #45474f;
   color: #e4e4e4;
 }
-/* Ocultar las flechas del campo de número */
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -89,14 +85,14 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .name-module label {
-  font-size: 40px; /* Aumentar el tamaño de la fuente */
-  font-weight: bold; /* Hacer el texto en negrita para mayor impacto */
-  color: #949ba4; /* Color de texto oscuro para contraste */
+  font-size: 40px;
+  font-weight: bold;
+  color: #949ba4;
 }
 
 .buttons {
   display: flex;
-  justify-content: flex-end; /* Alinear los elementos a la derecha */
+  justify-content: flex-end;
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
@@ -104,7 +100,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .buttons button {
-  margin-left: 10px; /* Agregar un espacio entre los botones */
+  margin-left: 10px;
 }
 
 .button-clean:hover {
@@ -117,8 +113,14 @@ input[type="number"]::-webkit-outer-spin-button {
   border-color: #0e7cd9;
 }
 
+.button-register-comp:hover {
+  background-color: #43a047;
+  border-color: #43a047;
+}
+
 .button-search:focus,
-.button-clean:focus {
+.button-clean:focus,
+.button-register-comp:focus {
   outline: none;
 }
 
@@ -144,4 +146,31 @@ input[type="number"]::-webkit-outer-spin-button {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.button-register-comp {
+  background-color: #4caf50;
+  border-color: #4caf50;
+  padding: 8px 16px;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.cancel-button {
+  background-color: red;
+  border-color: white;
+  color: white;
+}
+
+.cancel-button:hover {
+  border-color: white;
+  background-color: darkred;
+}
+
+.field-error {
+  border: 2px solid red !important;
 }

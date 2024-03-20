@@ -1,14 +1,13 @@
-export interface RegisterPatient {
+export interface RegisterCompanion {
+  idPaciente: number;
   idTipoDocumento: number;
   numeroDocumento: string;
   apellidoPaterno: string;
   apellidoMaterno: string;
   nombres: string;
-  idSexo: number;
   fechaNacimiento: Date;
-  lugarNacimiento: string;
   direccion: string;
   codigoUbigeo: string;
-  estado: number;
-  codigoAsegurado: string;
+  idParentesco: number;
+  telefonoContacto: string;
 }

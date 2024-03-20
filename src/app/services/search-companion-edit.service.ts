@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
-import axios from 'axios';
 import { Observable } from 'rxjs';
+import { SearchCompanionEdit } from '../interfaces/search-companion-edit';
+import axios from 'axios';
 import { environment } from '../enviroment/enviroment';
-import { RegisterPatient } from '../interfaces/register-patient';
 
 @Injectable({
   providedIn: 'root',
 })
-export class RegisterPatientService {
+export class SearchCompanionEditService {
   private apiUrl = environment.apiUrl;
 
   constructor() {}
 
-  registerPatient(patientData: RegisterPatient): Observable<number> {
-    return new Observable<number>((observer) => {
+  getCompanionData(idPaciente: number): Observable<SearchCompanionEdit> {
+    return new Observable((observer) => {
       axios
-        .post<number>(`${this.apiUrl}pacientes/registrar`, patientData)
+        .get<SearchCompanionEdit>(
+          `${this.apiUrl}acompanante/editar/buscar/${idPaciente}`
+        )
         .then((response) => {
           observer.next(response.data);
           observer.complete();

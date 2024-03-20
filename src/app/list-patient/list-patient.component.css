@@ -7,11 +7,11 @@
 
 .buttons {
   display: flex;
-  justify-content: flex-end; /* Alinear los elementos a la derecha */
+  justify-content: flex-end;
 }
 
 .buttons button {
-  margin-left: 10px; /* Agregar un espacio entre los botones */
+  margin-left: 10px;
 }
 
 .search-module {
@@ -21,7 +21,7 @@
   margin-right: 5%;
   margin-bottom: 2%;
   padding: 3%;
-  border: 3px solid rgb(147, 147, 147); /* Agregar borde a cada fila */
+  border: 3px solid rgb(147, 147, 147);
   background-color: #2b2d31;
   border-radius: 10px;
 }
@@ -54,8 +54,8 @@
 
 input:disabled,
 select:disabled {
-  background-color: #7a7a7a; /* Color de fondo gris para elementos deshabilitados */
-  color: #bfbfbf; /* Color de texto gris para elementos deshabilitados */
+  background-color: #7a7a7a;
+  color: #bfbfbf;
 }
 
 input {
@@ -73,7 +73,7 @@ select {
   background-color: #45474f;
   color: #e4e4e4;
 }
-/* Ocultar las flechas del campo de número */
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -87,7 +87,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-right: 5%;
   margin-bottom: 5%;
   padding: 3%;
-  border: 3px solid rgb(147, 147, 147); /* Agregar borde a cada fila */
+  border: 3px solid rgb(147, 147, 147);
   background-color: #2b2d31;
   border-radius: 10px;
 }
@@ -162,9 +162,9 @@ table {
 
 th,
 td {
-  padding: 10px; /* Ajusta el espaciado interno de las celdas */
+  padding: 10px;
   text-align: left;
-  border-bottom: 1px solid rgb(147, 147, 147); /* Línea separadora entre filas */
+  border-bottom: 1px solid rgb(147, 147, 147);
 }
 
 td {
@@ -172,16 +172,16 @@ td {
 }
 
 th {
-  background-color: #6b6e72; /* Color de fondo para los encabezados */
+  background-color: #6b6e72;
   color: #c7c8c9;
 }
 
 tbody tr {
-  background-color: #383a40; /* Alternar colores de fondo para filas pares */
+  background-color: #383a40;
 }
 
 .edit-button {
-  background-color: #28a745; /* Color de fondo para botón de editar */
+  background-color: #28a745;
   padding: 5px 10px;
   color: white;
   cursor: pointer;
@@ -202,16 +202,15 @@ tbody tr {
   border-color: #dc3545;
 }
 .edit-button:hover {
-  background-color: #218838; /* Cambiar el color de fondo al 
-  pasar el mouse sobre el botón */
+  background-color: #218838;
   border-color: #218838;
 }
 .delete-button:hover {
-  background-color: #484a4f; /* Cambiar el color de fondo al pasar el mouse sobre el botón */
+  background-color: #484a4f;
 }
 
 .name-module label {
-  font-size: 40px; /* Aumentar el tamaño de la fuente */
-  font-weight: bold; /* Hacer el texto en negrita para mayor impacto */
-  color: #949ba4; /* Color de texto oscuro para contraste */
+  font-size: 40px;
+  font-weight: bold;
+  color: #949ba4;
 }

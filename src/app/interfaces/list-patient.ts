@@ -1,4 +1,5 @@
 export interface ListPatient {
+  idPaciente: number;
   noApepat: string;
   noApemat: string;
   noNombres: string;
